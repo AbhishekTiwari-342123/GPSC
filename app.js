@@ -60,4 +60,4 @@ app.post("/getQR", async(req,res)=>{
 })
 
 
-app.listen(8000,()=>{console.log("App is listening on the Port")})
+app.listen(8000||process.env.PORT,()=>{console.log("App is listening on the Port")})
