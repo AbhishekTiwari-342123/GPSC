@@ -9,13 +9,13 @@ app.set('view engine','ejs')
 app.use(cors())
 
 
-var mc = new mongoclient('mongodb://localhost:27017')
-var db
+// var mc = new mongoclient('mongodb://localhost:27017')
+// var db
 
-mc.connect(function(err,server){
-    if(err) throw err
-    db=server.db("GPSC")
-})
+// mc.connect(function(err,server){
+//     if(err) throw err
+//     db=server.db("GPSC")
+// })
 
 app.use(express.json())
 app.use(express.urlencoded({
