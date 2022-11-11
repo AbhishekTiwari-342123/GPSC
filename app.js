@@ -32,6 +32,23 @@ app.get("/contact", async(req,res)=>{
     res.render('contact')
 })
 
+app.get("/about", async(req,res)=>{
+    res.render('about')
+})
+
+app.get("/disclaimer", async(req,res)=>{
+    res.render('disc')
+})
+app.get("/disclosure", async(req,res)=>{
+    res.render('disclosure')
+})
+app.get("/tnc", async(req,res)=>{
+    res.render('tnc')
+})
+app.get("/feePolicy", async(req,res)=>{
+    res.render('fpolicy')
+})
+
 app.get("/feePayment", async(req,res)=>{
     res.render('feePayment')
 })
