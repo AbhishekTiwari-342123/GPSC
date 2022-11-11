@@ -40,7 +40,7 @@ app.get("/disclaimer", async(req,res)=>{
     res.render('disc')
 })
 app.get("/disclosure", async(req,res)=>{
-    res.render('disclosure')
+    res.render('mdisclosure')
 })
 app.get("/tnc", async(req,res)=>{
     res.render('tnc')
@@ -51,6 +51,18 @@ app.get("/feePolicy", async(req,res)=>{
 
 app.get("/feePayment", async(req,res)=>{
     res.render('feePayment')
+})
+
+app.get("/staffs", async(req,res)=>{
+    res.render('staffs')
+})
+
+app.get("/gallery", async(req,res)=>{
+    res.render('gallery')
+})
+
+app.get("/schoolLife", async(req,res)=>{
+    res.render('schoollife')
 })
 
 app.post("/getQR", async(req,res)=>{
