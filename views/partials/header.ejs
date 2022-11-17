@@ -11,7 +11,7 @@
     <link rel='stylesheet' href='/static/plugins/revslider/public/assets/css/settings.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/static/css/style-core.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/static/css/kingster-style-custom.css' type='text/css' media='all' />
-    <link rel="icon" type="image/x-icon" href="/static/upload/icon.jpg">
+    <link rel="icon" type="image/x-icon" href="/static/upload/prio.png">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
@@ -25,6 +25,10 @@
             $scope.removeForm=false
             $scope.amount = 0
             $scope.src
+            $scope.studentName
+            $scope.amount
+            $scope.utr
+            
             $scope.showQrCode = () =>{
                 $http.post("http://127.0.0.1:8000/getQR",{amount:$scope.amount}).then(function(data){
                     $scope.showQr = true
@@ -32,9 +36,25 @@
                     $scope.src=data.data
                     console.log(src)
 
-                    $scope.showQr = true
+                    //$scope.showQr = true
                 }).catch(err => console.log(err))
                 
+            }
+            $scope.submitPaymentDetails = () =>{
+                $http.post("http://127.0.0.1:8000/paymentDetails",{
+                    regd:$scope.regd,
+                    studentName:$scope.studentName,
+                    amount: $scope.amount,
+                    utr:$scope.utr
+                }).then(function(data){
+
+
+                })
+            }
+            $scope.previousPageQr = () =>{
+                $scope.showQr=false
+                $scope.removeForm=false
+
             }
 
         })
@@ -51,7 +71,7 @@
             <div class="kingster-mobile-header-container kingster-container clearfix">
                 <div class="kingster-logo  kingster-item-pdlr">
                     <div class="kingster-logo-inner">
-                        <a class="" href="index.html"><img src="/static/images/logo-kindergarten.png" alt="" /></a>
+                        <a class="" href="index.html"><img src="/static/upload/prio.jpg" alt="" /></a>
                     </div>
                 </div>
                 <div class="kingster-mobile-menu-right">
@@ -159,7 +179,7 @@
                     <div class="kingster-header-container-inner clearfix">
                         <div class="kingster-logo  kingster-item-pdlr">
                             <div class="kingster-logo-inner">
-                                <a class="" href="/"><img src="/static/images/logo-kindergarten.png" alt="" /></a>
+                                <a class="" href="/"><img src="/static/upload/prio.png" alt="" height="80px" width="110px" /></a>
                             </div>
                         </div>
                         <div class="kingster-navigation kingster-item-pdlr clearfix ">

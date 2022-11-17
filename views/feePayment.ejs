@@ -1,6 +1,6 @@
 <%- include('partials/header')%>
-<div class="gdlr-core-pbf-wrapper " style="padding: 95px 0px 50px 0px;">
-    <div class="gdlr-core-pbf-background-wrap" style="background-color: #f3f3f3 ;"></div>
+<div class="gdlr-core-pbf-wrapper " style="padding: 95px 0px 50px 0px; ;">
+    <div class="gdlr-core-pbf-background-wrap" style="background-color: #f3f3f3 ;background-image:url(/static/upload/feeBg.png)"></div>
     <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
         <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
             <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first">
@@ -9,47 +9,48 @@
                         <div class="gdlr-core-pbf-element">
                             <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 40px ;">
                                 <div class="gdlr-core-title-item-title-wrap clearfix">
-                                    <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 43px ;letter-spacing: 0px ;text-transform: none ;">Fee Payment System</h3>
+                                    <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="color:white;font-size: 43px ;letter-spacing: 0px ;text-transform: none ;">Fee Payment System</h3>
                                 </div>
-                                <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 19px ;font-style: normal ;">Fill up the details below</span></div>
+                                <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 19px ;font-style: normal ;color:white">Fill up the details below</span></div>
                         </div>
                         <div class="gdlr-core-pbf-element">
                             <div class="gdlr-core-contact-form-7-item gdlr-core-item-pdlr gdlr-core-item-pdb ">
                                 <div role="form" class="wpcf7" id="wpcf7-f1979-p1985-o1" lang="en-US" dir="ltr">
                                     <div class="screen-reader-response"></div>
-                                    <form class="quform" method="post" enctype="multipart/form-data" onclick="">
+                                    <form class="quform" method="POST" >
                                         
                                         <!-- Page 1 -->
                                         <div class="quform-elements" ng-show="!removeForm">
                                             <div class="quform-element">
-                                                <p>Your Name (required)
+                                                <p style="color:white">Your Regd. Number (required)
                                                     <br>
                                                     <span class="wpcf7-form-control-wrap your-name">
-                                                        <input id="name" type="text" name="name" size="40" class="input1" aria-required="true" aria-invalid="false">
+                                                        <input id="name" type="number" name="regd" size="40" ng-model="regd" class="input1" aria-required="true" aria-invalid="false">
                                                     </span> 
                                                 </p>
                                             </div>
                                             <div class="quform-element">
-                                                <p>Amount (required)
+                                                <p style="color:white">Your Name (required)
+                                                    <br>
+                                                    <span class="wpcf7-form-control-wrap your-name">
+                                                        <input id="name" type="text" name="name" size="40" class="input1" ng-model="studentName" aria-required="true" aria-invalid="false">
+                                                    </span> 
+                                                </p>
+                                            </div>
+                                            <div class="quform-element">
+                                                <p style="color:white">Amount (required)
                                                     <br>
                                                     <span class="wpcf7-form-control-wrap your-email">
-                                                        <input id="amount" type="number" name="amount" ng-model="amount" size="40" class="input1" aria-required="true" aria-invalid="false">
+                                                        <input id="amount" type="number" name="amount" min="10" ng-model="amount" size="40" class="input1" aria-required="true" aria-invalid="false">
                                                     </span> 
                                                 </p>
                                             </div>
-                                            <div class="quform-element">
-                                                <p>Your Message
-                                                    <br>
-                                                    <span class="wpcf7-form-control-wrap your-message">
-                                                        <textarea id="message" name="message" cols="40" rows="10" class="input1" aria-invalid="false"></textarea>
-                                                    </span>
-                                                </p>
-                                            </div>
+                                            
                                             <p>
-                                                <!-- Begin Submit button -->
+                                                <!-- Begin Make Payment button -->
                                                 </p><div class="quform-submit">
                                                     <div class="quform-submit-inner">
-                                                        <button type="submit" class="submit-button" ng-click="showQrCode()"><span>Make Payment</span></button>
+                                                        <button  class="submit-button" ng-click="showQrCode()"><span>Make Payment</span></button>
                                                     </div>
                                                     <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
                                                 </div>
@@ -59,21 +60,33 @@
                                         <!-- Page 2 -->
                                         <div class="quform-elements" ng-show="showQr">
                                             <div class="quform-element">
-                                                <p> Scan Here 
+                                                <center>
+                                                <p style="color:white"> Scan and Pay with any UPI app
                                                     <br>
                                                     <span class="wpcf7-form-control-wrap your-name">
-                                                        <img src="{{src}}" ng-model="src">
+                                                        <img src="{{src}}" ng-model="src" width="280px" height="300px">
+                                                    </span> 
+                                                </p>
+                                            </center>
+                                            </div>
+                                        
+                                                <center>
+                                                <p style="color:white">
+                                                    <br>
+                                                    <span class="wpcf7-form-control-wrap your-name">
+                                                        <img src="/static/upload/qrBanner.jpg" ng-model="src" width="280px" height="300px">
+                                                    </span> 
+                                                </p>
+                                            </center>
+                                            
+                                            <div class="quform-element">
+                                                <p style="color:white">Update your UTR Number after Payment
+                                                    <br>
+                                                    <span class="wpcf7-form-control-wrap your-email">
+                                                        <input id="number" type="number" name="utr" size="40" ng-model="utr" class="input1" aria-required="true" aria-invalid="false">
                                                     </span> 
                                                 </p>
                                             </div>
-                                            <!-- <div class="quform-element">
-                                                <p>Your Email (required)
-                                                    <br>
-                                                    <span class="wpcf7-form-control-wrap your-email">
-                                                        <input id="email" type="text" name="email" size="40" class="input1" aria-required="true" aria-invalid="false">
-                                                    </span> 
-                                                </p>
-                                            </div> -->
                                             <!-- <div class="quform-element">
                                                 <p>Your Message
                                                     <br>
@@ -82,15 +95,21 @@
                                                     </span>
                                                 </p>
                                             </div> -->
-                                        
-                                                <!-- Begin Submit button -->
-                                                
-                                                <!-- <div class="quform-submit">
+                                            <!-- Previous Page -->
+                                                <div class="quform-submit">
                                                     <div class="quform-submit-inner">
-                                                        <button type="submit" class="submit-button"><span>Make Payment</span></button>
+                                                        <button  class="submit-button" style="background-color:rgb(214, 13, 13)" ng-click="previousPageQr()"><span>Previous Page</span></button>
                                                     </div>
                                                     <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
-                                                </div> -->
+                                                </div><br>
+                                                <!-- Begin Submit button -->
+                                                
+                                                <div class="quform-submit">
+                                                    <div class="quform-submit-inner">
+                                                        <button type="submit" class="submit-button" ng-click="submitPaymentDetails()"><span>Finish Payment</span></button>
+                                                    </div>
+                                                    <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
+                                                </div>
                                             <p></p>
                                         </div>
                                     </form>

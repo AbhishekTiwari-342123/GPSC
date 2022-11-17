@@ -66,7 +66,7 @@ app.get("/schoolLife", async(req,res)=>{
 })
 
 app.post("/getQR", async(req,res)=>{
-    console.log(req.body)
+    console.log(req.body.amount)
  
         const url = "upi://pay?pn=UPAYI&pa=9937210111@axl&cu=INR&am="+req.body.amount;
     
@@ -79,7 +79,7 @@ app.post("/getQR", async(req,res)=>{
         
         qr.toDataURL(url, (err, src) => {
             if (err) res.send("Error occured");
-            console.log(src)
+           // console.log(src)
           
             // Let us return the QR code image as our response and set it to be the source used in the webpage
             res.send(src);
@@ -88,5 +88,9 @@ app.post("/getQR", async(req,res)=>{
    // res.render('feePayment')
 })
 
+app.post("/paymentDetails", async(req,res)=>{
+    console.log(req.body);
+
+})
 
 app.listen(8000||process.env.PORT,()=>{console.log("App is listening on the Port")})
